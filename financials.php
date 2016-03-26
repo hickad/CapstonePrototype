@@ -297,9 +297,9 @@ function editButtons(id)
          row += "<button id='uxEditBtn'class='btn btn-secondary' role='button' onclick='javascript:removeDonorRow("+id+");'>Delete</button>"
          row += "</th>"
          row += "<td>"+ name +"</td>"
-         row += "<td>Pledge of $"+ pledgeAmount +" from "+ name.split(" ")[0] +"</td>"
+         row += "<td>Pledge of "+ toDollarAmount(pledgeAmount) +" from "+ name.split(" ")[0] +"</td>"
          row += "<td>"+ date +"</td>"
-         row += "<td>$"+ amount +"</td></tr>";
+         row += "<td>"+ toDollarAmount(amount) +"</td></tr>";
       
      $('#donationTable tbody').append(row);
  }
