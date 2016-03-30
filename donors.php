@@ -114,11 +114,15 @@
           </th>
         </tr>
         <tr>
-          <td>Type:</td>
+          <td>Item:</td>
           <td>
-          <div class="ui input">
-            <input id="uxTypeInput"  type="text">
-           </div>
+			<select  class="ui dropdown" id="uxTypeInput">
+			</select>
+			
+			
+			
+			
+			
           </td>
           <th>
             <div id="uxTypeTxt"></div>
@@ -172,19 +176,22 @@
      
  //
  // INITIAL CONDITION
- //
-var dt = [{numberItems:1, type:"suite",totalValue:20,date:"4/02/2016"},
-		  {numberItems:2, type:"suite",totalValue:200,date:"2/12/2016"},
-		  {numberItems:4, type:"suite",totalValue:150.50,date:"4/23/2016"},
-		  {numberItems:1, type:"suite",totalValue:100,date:"4/02/2016"},
-		  {numberItems:2, type:"suite",totalValue:200,date:"1/30/2013"},
-		  {numberItems:6, type:"suite",totalValue:200,date:"3/23/2016"}];
+ //  
+var dt = [{numberItems:1, type:0,totalValue:20,date:"4/02/2016"},
+		  {numberItems:2, type:3,totalValue:200,date:"2/12/2016"},
+		  {numberItems:4, type:5,totalValue:150.50,date:"4/23/2016"},
+		  {numberItems:1, type:4,totalValue:100,date:"4/02/2016"},
+		  {numberItems:2, type:2,totalValue:200,date:"1/30/2013"},
+		  {numberItems:6, type:5,totalValue:200,date:"3/23/2016"}];
 		  
+var typeOptions = ["Dress Shirt","Pants","Tie","Shoes","Belt","Socks","Blazers & Sport Coats"];
 		  
   dataBind(dt);
   $('#uxFormView').hide();
   $('#uxTableView').show();
 
+
+createDropDown('uxTypeInput', typeOptions)
 
 // PROPERTIES ------------------------------------
 // The id of the edit button selected in the table.
@@ -203,16 +210,16 @@ $("#uxSubmitBtn").click(function()
   	try
     {
       var memberValue = $.trim($("#uxNumberOfItemsInput").val());
-      var pledgeValue = $.trim($("#uxTypeInput").val());
+      var pledgeValue = $("#uxTypeInput option:selected").text();
       var dateValue = $.trim($("#uxValueInput").val());
       var amountValue = $.trim($("#uxDateInput").val());
       
       clearErrors();
       
-      if( memberValue.length <= 0 ){ $("#uxNumberOfItemsTxt").text("Please enter a member name."); return };
-      if( pledgeValue.length <= 0 ){ $("#uxTypeTxt").text("Please enter a pledge amount."); return };
-      if( dateValue.length <= 0 ){ $("#uxValueTxt").text("Please enter a donation date."); return };
-      if( amountValue.length <= 0 ){ $("#uxDateTxt").text("Please enter a donation amount."); return };
+      if( memberValue.length <= 0 ){ $("#uxNumberOfItemsTxt").text("Please enter the number of items."); return };
+      if( pledgeValue.length <= 0 ){ $("#uxTypeTxt").text("Please enter a pledge item."); return };
+      if( dateValue.length <= 0 ){ $("#uxValueTxt").text("Please enter a donation amount."); return };
+      if( amountValue.length <= 0 ){ $("#uxDateTxt").text("Please enter a donation date."); return };
 
        
       if( editMode )
@@ -284,7 +291,7 @@ function editButtons(id)
       $("#uxNumberOfItemsInput").val(dt[id].numberItems);
       $("#uxTypeInput").val(dt[id].type);
       $("#uxValueInput").val(dt[id].totalValue);
-      $("#uxDateInput").val(dt[id].date);   
+      $("#uxDateInput").val(dt[id].date);  
 }
  
  
@@ -300,11 +307,20 @@ function editButtons(id)
          row += "<button id='uxEditBtn'class='btn btn-secondary' role='button' onclick='javascript:removeDonorRow("+id+");'>Delete</button>"
          row += "</th>"
          row += "<td>"+ numberItems +"</td>"
-         row += "<td>Pledge of $"+ type +"</td>"
+         row += "<td>Pledge of "+ typeOptions[type] +"</td>"
          row += "<td>"+ toDollarAmount(totalValue) +"</td>"
          row += "<td>"+ date +"</td></tr>";
       
      $('#donationTable tbody').append(row);
+ }
+ 
+ 
+ function createDropDown(id, items)
+ {	 
+	 for(var i=0; i<items.length; i++)
+	 {
+		$("#"+id).append("<option value='"+i+"'>" + items[i] + "</option>");
+	 }
  }
  
  
@@ -337,8 +353,8 @@ function editButtons(id)
   //
  function clear()
  {
-    $("#uxNumberOfItemsInput").val(""); 
-    $("#uxTypeInput").val(""); 
+    $("#uxNumberOfItemsInput").val("");
+	$("#uxTypeInput").val(0);	
     $("#uxValueInput").val(""); 
     $("#uxDateInput").val("");
  }
