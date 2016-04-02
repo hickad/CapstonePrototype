@@ -184,7 +184,7 @@ var dt = [{numberItems:1, type:0,totalValue:20,date:"4/02/2016"},
 		  {numberItems:2, type:2,totalValue:200,date:"1/30/2013"},
 		  {numberItems:6, type:5,totalValue:200,date:"3/23/2016"}];
 		  
-var typeOptions = ["Dress Shirt","Pants","Tie","Shoes","Belt","Socks","Blazers & Sport Coats"];
+var typeOptions = ["dress shirt","pants","tie","shoes","belt","socks","blazers & sport coats"];
 		  
   dataBind(dt);
   $('#uxFormView').hide();
@@ -209,35 +209,33 @@ $("#uxSubmitBtn").click(function()
 {  
   	try
     {
-      var memberValue = $.trim($("#uxNumberOfItemsInput").val());
-      var pledgeValue = $("#uxTypeInput option:selected").text();
-      var dateValue = $.trim($("#uxValueInput").val());
-      var amountValue = $.trim($("#uxDateInput").val());
+      var numberOfItems = $.trim($("#uxNumberOfItemsInput").val());
+      var ItemType = $("#uxTypeInput").val();
+      var itemValue = $.trim($("#uxValueInput").val());
+      var date = $.trim($("#uxDateInput").val());
       
       clearErrors();
       
-      if( memberValue.length <= 0 ){ $("#uxNumberOfItemsTxt").text("Please enter the number of items."); return };
-      if( pledgeValue.length <= 0 ){ $("#uxTypeTxt").text("Please enter a pledge item."); return };
-      if( dateValue.length <= 0 ){ $("#uxValueTxt").text("Please enter a donation amount."); return };
-      if( amountValue.length <= 0 ){ $("#uxDateTxt").text("Please enter a donation date."); return };
+      if( numberOfItems.length <= 0 ){ $("#uxNumberOfItemsTxt").text("Please enter the number of items."); return };
+      if( itemValue.length <= 0 ){ $("#uxValueTxt").text("Please enter a donation amount."); return };
+      if( date.length <= 0 ){ $("#uxDateTxt").text("Please enter a donation date."); return };
 
        
       if( editMode )
       {
-        dt[dataId].name = memberValue;
-        dt[dataId].pledgeAmount = pledgeValue;
-        dt[dataId].date = dateValue;
-        dt[dataId].amount = amountValue;
+        dt[dataId].numberItems = numberOfItems;
+        dt[dataId].type = ItemType;
+        dt[dataId].totalValue = itemValue;
+        dt[dataId].date = date;
       }
       else
       {
-        dt.push({name: memberValue, 
-                pledgeAmount: pledgeValue, 
-                date: dateValue, 
-                amount: amountValue });
+        dt.push({numberItems: numberOfItems, 
+                type: ItemType, 
+                date: itemValue, 
+                totalValue: date });
       }
        
-    
       $('#uxFormView').hide();   
       $('#uxTableView').show();
      clear();
@@ -307,7 +305,7 @@ function editButtons(id)
          row += "<button id='uxEditBtn'class='btn btn-secondary' role='button' onclick='javascript:removeDonorRow("+id+");'>Delete</button>"
          row += "</th>"
          row += "<td>"+ numberItems +"</td>"
-         row += "<td>Pledge of "+ typeOptions[type] +"</td>"
+         row += "<td>Pledge(s) of "+ typeOptions[type] +"</td>"
          row += "<td>"+ toDollarAmount(totalValue) +"</td>"
          row += "<td>"+ date +"</td></tr>";
       
@@ -353,7 +351,7 @@ function editButtons(id)
   //
  function clear()
  {
-    $("#uxNumberOfItemsInput").val("");
+    $("#uxNumberOfItemsInput").val("0");
 	$("#uxTypeInput").val(0);	
     $("#uxValueInput").val(""); 
     $("#uxDateInput").val("");

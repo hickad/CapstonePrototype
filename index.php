@@ -88,10 +88,6 @@
     <span class="fa fa-facebook"></span>
    </a>
   
-  <a class="btn btn-social-icon btn-google">
-    <span class="fa fa-google"></span>
-  </a>
-  
   <a class="btn btn-social-icon btn-linkedin">
     <span class="fa fa-linkedin"></span>
   </a>
