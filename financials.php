@@ -52,10 +52,6 @@
     <!--This is the donor table and the add donor button.-->
       <div id="uxTableView">  
    
-        <div id="uxAddDonorBtn" class="ui left small primary labeled icon button">
-          <i class="user icon"></i> Add Donor
-        </div>
-      
          <table id="donationTable" class="ui celled table" style="width:90%;padding: 15px;">
           <thead>
            <tr>
@@ -161,7 +157,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-  
+	<script src="js/main.js"></script>
 
    <script>
      
@@ -177,12 +173,11 @@ var dt = [{name:"Tim Smith", pledgeAmount: 5000, date:"4/02/2016", amount: 1000}
           {name:"Joe Shmoe", pledgeAmount: 1000, date:"5/22/2015", amount: 500},
           {name:"Herb Hover", pledgeAmount: 4000, date:"3/23/2016", amount: 2500}];
 
-  dataBind(dt);
-
   $('#uxFormView').hide();
   $('#uxTableView').show();
-
-
+  
+	dataBind(dt);
+	
 // PROPERTIES ------------------------------------
 // The id of the edit button selected in the table.
 var dataId;
@@ -191,7 +186,7 @@ var dataId;
 var editMode; 
 
 // DDNOR FORM ------------------------------------
-//Hello world
+//
 //
 //  This is the submit button on the donor entry form.
 //
@@ -259,14 +254,6 @@ $("#uxBackBtn").click(function()
 
  
 // DONOR TABLE ---------------------------
-
-$('#uxAddDonorBtn').click(function() 
-{ 
-  $('#uxTableView').hide();
-  $('#uxFormView').show();
-  clear();
-  editMode = false;
-});
 
 
 
@@ -351,7 +338,7 @@ function editButtons(id)
     $("#uxDonationDateTxt").text("");
     $("#uxAmountTxt").text("");
  }
- 
+
 
 
  </script>
