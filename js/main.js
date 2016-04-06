@@ -32,3 +32,13 @@
 		$('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
 	  });
 	})(jQuery);
+	
+	
+	 function createDropDown(id, items)
+	 {	 
+		 for(var i=0; i<items.length; i++)
+		 {
+			$("#"+id).append("<option value='"+i+"'>" + items[i] + "</option>");
+		 }
+	 }
+	 

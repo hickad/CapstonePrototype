@@ -88,13 +88,10 @@
             </th>
           </tr></tfoot>
         </table>
-      
   	 </div>
      
      <!--This is the form used to enter information into the table-->
-     <div id="uxFormView">
-       
-       
+     <div id="uxFormView"> 
        <table>
         <tr>
           <td>Number of Items:</td>
@@ -117,12 +114,7 @@
           <td>Item:</td>
           <td>
 			<select  class="ui dropdown" id="uxTypeInput">
-			</select>
-			
-			
-			
-			
-			
+			</select>	
           </td>
           <th>
             <div id="uxTypeTxt"></div>
@@ -143,7 +135,7 @@
           <td>Date:</td>
           <td>
           <div class="ui input">
-            <input id="uxDateInput" type="text">
+            <input id="uxDateInput" type="date">
            </div>
           </td>  
           <th>
@@ -313,14 +305,7 @@ function editButtons(id)
  }
  
  
- function createDropDown(id, items)
- {	 
-	 for(var i=0; i<items.length; i++)
-	 {
-		$("#"+id).append("<option value='"+i+"'>" + items[i] + "</option>");
-	 }
- }
- 
+
  
  function removeDonorRow(id)
  {

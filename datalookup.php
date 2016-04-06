@@ -9,13 +9,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Financials</title>
+    <title>Data Lookup</title>
 
     <link href="css/main.css" rel="stylesheet">
-        
+    <link href="css/dropdown.min.css" rel="stylesheet">
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+	<script src="js/main.js"></script>
+	<script src="js/dropdown.min.js"></script>
     <!-- Custom CSS -->
     <link href="css/business-frontpage.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -43,15 +45,25 @@
 
     <div id="container">
 
-    <h2 class="ui header">Financials</h2>  
+    <h2 class="ui header">Data Lookup</h2>  
    
 	<hr>
    
 		<button class="ui primary button">
 		  Search
 		</button>
+		
 		<div class="ui input">
 		  <input type="text" placeholder="Search...">
+		</div>
+		<div class="ui selection dropdown">
+		  <input type="hidden" name="gender">
+		  <i class="dropdown icon"></i>
+		  <div class="default text">Donors</div>
+		  <div class="menu">
+			<div class="item" data-value="1">Donors</div>
+			<div class="item" data-value="0">Customers</div>
+		  </div>
 		</div>
    
          <table id="donationTable" class="ui celled table" style="width:90%;padding: 15px;">
@@ -98,7 +110,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
+	
 
    <script>
      

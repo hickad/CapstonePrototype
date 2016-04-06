@@ -88,7 +88,9 @@
     <span class="fa fa-facebook"></span>
    </a>
   
-  <a class="btn btn-social-icon btn-linkedin">
+  <a href="https://www.linkedin.com/company/10524348?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A10524348%2Cidx%3A1-1-1%2CtarId%3A1459901803254%2Ctas%3Asuited4su" 
+	target="_blank"
+	class="btn btn-social-icon btn-linkedin">
     <span class="fa fa-linkedin"></span>
   </a>
   
