@@ -49,7 +49,7 @@
     <hr>
    
    
-    <!--This is the donor table and the add donor button.-->
+    <!--This is the customer table and the add customer button.-->
       <div id="uxTableView">  
    
         <div id="uxAddCustomerBtn" class="ui left small primary labeled icon button">
@@ -108,7 +108,7 @@
           <td>Address:</td>
           <td>
           <div class="ui input">
-            <!--<textarea id="uxAddressInput" rows="4" cols="50" />-->
+            <textarea id="uxAddressInput" rows="4" cols="30"></textarea>
            </div>
           </td>
           <th>
@@ -130,7 +130,7 @@
           <td>Phone:</td>
           <td>
           <div class="ui input">
-            <input id="uxemailInput" address="tel">
+            <input id="uxPhoneInput" address="tel">
            </div>
           </td>  
           <th>
@@ -181,16 +181,16 @@ var dt = [{name:"James Smith", address:"555 Orange Lane, Jacksonville, Fl. 32085
 // The id of the edit button selected in the table.
 var dataId;
 
-//Defines if the donor entry form is for editing existing data or entering new data.
+//Defines if the customer entry form is for editing existing data or entering new data.
 var editMode; 
 
 // DDNOR FORM ------------------------------------
 //
 //
-//  This is the submit button on the donor entry form.
+//  This is the submit button on the customer entry form.
 //
 $("#uxSubmitBtn").click(function() 
-{  
+{ 
   	try
     {
       var nameValue = $.trim($("#uxNameInput").val());
@@ -198,7 +198,6 @@ $("#uxSubmitBtn").click(function()
       var emailValue = $.trim($("#uxEmailInput").val());
       var phoneValue = $.trim($("#uxPhoneInput").val());
       
-      clearErrors();
       
        
       if( editMode )
@@ -218,10 +217,10 @@ $("#uxSubmitBtn").click(function()
        
       $('#uxFormView').hide();   
       $('#uxTableView').show();
-     clear();
       //Clear the table before repopulating it.
-      $('#donationTable tbody').empty();
-      
+	  clear();
+      $('#customerTable tbody').empty();
+	  
       dataBind(dt);
     }
     catch(error)
@@ -246,7 +245,7 @@ $("#uxBackBtn").click(function()
 
 
  
-// DONOR TABLE ---------------------------
+// CUSTOMER TABLE ---------------------------
 
 $('#uxAddCustomerBtn').click(function() 
 { 
@@ -266,36 +265,36 @@ function editButtons(id)
       $('#uxFormView').show();
 
       //Populate the textfields in the form.
-      $("#uxNumberOfItemsInput").val(dt[id].name);
+      $("#uxNameInput").val(dt[id].name);
       $("#uxAddressInput").val(dt[id].address);
-      $("#uxValueInput").val(dt[id].phone);
+      $("#uxPhoneInput").val(dt[id].phone);
       $("#uxEmailInput").val(dt[id].email);  
 }
  
  
  // FUNCTIONS ------------------------------------
  //
- // Adds a new row to the donor grid.
+ // Adds a new row to the customer grid.
  //
- function addDonorRow(id,name,address,phone,email)
+ function addRow(id,name,address,email, phone)
  {
      var row = "<tr>"
          row += "<th>"
          row += "<button id='uxEditBtn' class='btn btn-secondary' role='button' onclick='javascript:editButtons("+id+");'>Edit</button> "
-         row += "<button id='uxEditBtn'class='btn btn-secondary' role='button' onclick='javascript:removeDonorRow("+id+");'>Delete</button>"
+         row += "<button id='uxEditBtn'class='btn btn-secondary' role='button' onclick='javascript:removeRow("+id+");'>Delete</button>"
          row += "</th>"
          row += "<td>"+ name +"</td>"
          row += "<td>"+ address +"</td>"
-         row += "<td>"+ toDollarAmount(phone) +"</td>"
-         row += "<td>"+ email +"</td></tr>";
+         row += "<td>"+ email +"</td>"
+         row += "<td>"+ phone +"</td></tr>";
       
      $('#customerTable tbody').append(row);
  }
  
- function removeDonorRow(id)
+ function removeRow(id)
  {
     //Clear the table before repopulating it.
-    $('#donationTable tbody').empty();
+    $('#customerTable tbody').empty();
     delete dt[id];
     dataBind(dt);
  }
@@ -308,7 +307,7 @@ function editButtons(id)
  {
     for( var i in dataSource)
     {
-      addDonorRow(i,
+      addRow(i,
                   dataSource[i].name,
                   dataSource[i].address,
                   dataSource[i].email,
@@ -316,7 +315,7 @@ function editButtons(id)
     }
  }
   //
-  //Clears the donor entry form.
+  //Clears the customer entry form.
   //
  function clear()
  {
@@ -336,6 +335,7 @@ function editButtons(id)
     $("#uxEmailTxt").text("");
     $("#uxPhoneTxt").text("");
  }
+
  
 
  </script>
