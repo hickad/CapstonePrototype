@@ -1,4 +1,3 @@
- <!DOCaddress html>
 <html lang="en">
 
 <head>
@@ -43,7 +42,7 @@
 
     
       
-    <div id="container">
+  <div id="container">
 
     <h2 class="ui header">Customers</h2>    
     <hr>
@@ -138,17 +137,20 @@
           </th>      
       </table>
     <br/>
-       <button id="uxSubmitBtn" address="button" class="btn btn-primary">Submit</button>
-       <button id="uxClearBtn" address="button" class="btn btn-primary">Clear</button>
-       <button id="uxBackBtn" address="button" class="btn btn-primary">Back</button>
+       <button type="button" id="uxSubmitBtn" address="button" class="btn btn-primary">Submit</button>
+       <button type="button" id="uxClearBtn" address="button" class="btn btn-primary">Clear</button>
+       <button type="button" id="uxBackBtn" address="button" class="btn btn-primary">Back</button>
 
      </div>
     
-    </div>
+   </div>
+	
+	
   </div> 
+  
     <?php include 'footer.php'; ?>
 
-    </div>
+  
     <!-- /.container -->
 
     <!-- jQuery -->
@@ -171,7 +173,6 @@ var dt = [{name:"James Smith", address:"555 Orange Lane, Jacksonville, Fl. 32085
 		  {name:"Rob Michaels", address:"234 Blue Lane, Jacksonville, Fl. 32085",email:"Michaels@gmail.com",phone:"555-907-4589"},
 		  {name:"Greg Porter", address:"678 Violet Lane, Jacksonville, Fl. 32085",email:"Porter@gmail.com",phone:"555-904-4568"}];
 		  
-	 	  
   dataBind(dt);
   $('#uxFormView').hide();
   $('#uxTableView').show();
@@ -198,7 +199,7 @@ $("#uxSubmitBtn").click(function()
       var emailValue = $.trim($("#uxEmailInput").val());
       var phoneValue = $.trim($("#uxPhoneInput").val());
       
-      
+      clearErrors();
        
       if( editMode )
       {
@@ -220,8 +221,9 @@ $("#uxSubmitBtn").click(function()
       //Clear the table before repopulating it.
 	  clear();
       $('#customerTable tbody').empty();
-	  
+
       dataBind(dt);
+	  
     }
     catch(error)
     {
@@ -312,8 +314,9 @@ function editButtons(id)
                   dataSource[i].address,
                   dataSource[i].email,
                   dataSource[i].phone);
-    }
+    }	
  }
+ 
   //
   //Clears the customer entry form.
   //

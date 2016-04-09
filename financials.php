@@ -135,9 +135,9 @@
           </th>      
       </table>
     <br/>
-       <button id="uxSubmitBtn" type="button" class="btn btn-primary">Submit</button>
-       <button id="uxClearBtn" type="button" class="btn btn-primary">Clear</button>
-       <button id="uxBackBtn" type="button" class="btn btn-primary">Back</button>
+       <button type="button" id="uxSubmitBtn" address="button" class="btn btn-primary">Submit</button>
+       <button type="button" id="uxClearBtn" address="button" class="btn btn-primary">Clear</button>
+       <button type="button" id="uxBackBtn" address="button" class="btn btn-primary">Back</button>
 
      </div>
     
