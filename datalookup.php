@@ -10,7 +10,11 @@
     <meta name="author" content="">
 
     <title>Data Lookup</title>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
     <link href="css/main.css" rel="stylesheet">
     <link href="css/dropdown.min.css" rel="stylesheet">
 
@@ -49,22 +53,19 @@
    
 	<hr>
    
-		<button class="ui primary button">
-		  Search
-		</button>
+		
+		<button type="button" id="uxSearchBtn" address="button" class="btn btn-primary">Search</button>
 		
 		<div class="ui input">
-		  <input type="text" placeholder="Search...">
+		  <input id="uxSearchInput" type="text" placeholder="Search by Name">
 		</div>
-		<div class="ui selection dropdown">
-		  <input type="hidden" name="gender">
-		  <i class="dropdown icon"></i>
-		  <div class="default text">Donors</div>
-		  <div class="menu">
-			<div class="item" data-value="1">Donors</div>
-			<div class="item" data-value="0">Customers</div>
-		  </div>
-		</div>
+
+		<select id=uxDataLookupDD class="ui dropdown">
+		  <option value="">Select</option>
+		  <option value="0">Donors</option>
+		  <option value="1">Customers</option>
+		</select>
+		
    
          <table id="donationTable" class="ui celled table" style="width:90%;padding: 15px;">
           <thead>
@@ -105,11 +106,7 @@
     </div>
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 	
 
    <script>
@@ -117,17 +114,63 @@
  //
  // INITIAL CONDITION
  //
-var dt = [{name:"Tim Smith", pledgeAmount: 5000, date:"4/02/2016", amount: 1000},
-          {name:"Annie McCormic", pledgeAmount: 1000, date:"2/12/2016", amount: 200},
-          {name:"Jeremy Levine", pledgeAmount: 4000, date:"4/23/2016", amount: 1500},
-          {name:"Barbara Renolds", pledgeAmount: 900, date:"6/02/2015", amount: 200},
-          {name:"Margaret Thatcher", pledgeAmount: 500, date:"1/30/2013", amount: 220},
-          {name:"Ronald McDonald", pledgeAmount: 2000, date:"3/22/2014", amount:1000},
-          {name:"Joe Shmoe", pledgeAmount: 1000, date:"5/22/2015", amount: 500},
-          {name:"Herb Hover", pledgeAmount: 4000, date:"3/23/2016", amount: 2500}];
+var donorData = [{name:"Tim Smith", pledgeAmount: 5000, date:"4/02/2016", amount: 1000},
+				  {name:"Annie McCormic", pledgeAmount: 1000, date:"2/12/2016", amount: 200},
+				  {name:"Jeremy Levine", pledgeAmount: 4000, date:"4/23/2016", amount: 1500},
+				  {name:"Barbara Renolds", pledgeAmount: 900, date:"6/02/2015", amount: 200},
+				  {name:"Margaret Thatcher", pledgeAmount: 500, date:"1/30/2013", amount: 220},
+				  {name:"Ronald McDonald", pledgeAmount: 2000, date:"3/22/2014", amount:1000},
+				  {name:"Joe Shmoe", pledgeAmount: 1000, date:"5/22/2015", amount: 500},
+				  {name:"Herb Hover", pledgeAmount: 4000, date:"3/23/2016", amount: 2500}];
 
-  
-	dataBind(dt);
+
+var customerData = [{name:"James Smith", address:"555 Orange Lane, Jacksonville, Fl. 32085",email:"smith@gmail.com",phone:"555-904-6778"},
+					{name:"Herb O'Reilly", address:"456 Pink Lane, Jacksonville, Fl. 32085",email:"Herb@gmail.com",phone:"555-703-4566"},
+					{name:"Annie Ford", address:"789 Red Lane, Jacksonville, Fl. 32085",email:"Ford@gmail.com",phone:"555-906-2367"},
+					{name:"Rob Michaels", address:"234 Blue Lane, Jacksonville, Fl. 32085",email:"Michaels@gmail.com",phone:"555-907-4589"},
+					{name:"Greg Porter", address:"678 Violet Lane, Jacksonville, Fl. 32085",email:"Porter@gmail.com",phone:"555-904-4568"}];		  
+
+
+ 
+
+$("#uxSearchBtn").click(function() 
+{ 
+	$('#donationTable tbody').empty();
+
+	var userName = $('#uxSearchInput').val().trim();
+	
+	if(userName == "")
+	{
+		if($('#uxDataLookupDD').val() === "0")
+			dataBindDonor(donorData);
+		else if($('#uxDataLookupDD').val() === "1")
+			dataBindCustomer(customerData);
+	}
+	else
+	{
+		if($('#uxDataLookupDD').val() === "0")
+		{
+			for(var i in donorData)
+			{
+				if(donorData[i].name == userName)
+					dataBindDonor([donorData[i]]);
+			}
+		}
+		else if($('#uxDataLookupDD').val() === "1")
+		{
+			for(var i in customerData)
+			{
+				if(customerData[i].name == userName)
+					dataBindDonor([customerData[i]]);
+			}
+			
+		}
+
+	}
+			
+});
+
+
 
  // FUNCTIONS ------------------------------------
  //
@@ -135,31 +178,60 @@ var dt = [{name:"Tim Smith", pledgeAmount: 5000, date:"4/02/2016", amount: 1000}
  //
  function addDonorRow(id,name,pledgeAmount,date,amount)
  {
+	 var row = "";
+		 row = "<tr>"
+		 row += "<td>"+ name +"</td>"
+		 row += "<td>Pledge of "+ toDollarAmount(pledgeAmount) +" from "+ name.split(" ")[0] +"</td>"
+		 row += "<td>"+ date +"</td>"
+		 row += "<td>"+ toDollarAmount(amount) +"</td></tr>";
+		 
+     $('#donationTable tbody').append(row);
+ }
+ 
+ 
+ function addCustomerRow(id,name,address,email, phone)
+ {	
      var row = "<tr>"
          row += "<td>"+ name +"</td>"
-         row += "<td>Pledge of "+ toDollarAmount(pledgeAmount) +" from "+ name.split(" ")[0] +"</td>"
-         row += "<td>"+ date +"</td>"
-         row += "<td>"+ toDollarAmount(amount) +"</td></tr>";
+         row += "<td><div style='wordwrap:break-word;width:180px'>"+ address +"</div></td>"
+         row += "<td>"+ email +"</td>"
+         row += "<td>"+ phone +"</td></tr>";
       
      $('#donationTable tbody').append(row);
  }
+ 
+
  
  
  //
  // Populate the table with data.
  //
- function dataBind(dataSource)
+ function dataBindDonor(dataSource)
  {
     for( var i in dataSource)
     {
       addDonorRow(i,
-                  dataSource[i].name,
-                  dataSource[i].pledgeAmount,
-                  dataSource[i].date,
-                  dataSource[i].amount);
+			  dataSource[i].name,
+			  dataSource[i].pledgeAmount,
+			  dataSource[i].date,
+			  dataSource[i].amount);
     }
     
  }
+ 
+ 
+  function dataBindCustomer(dataSource)
+ {
+    for( var i in dataSource)
+    {
+      addCustomerRow(i,
+                  dataSource[i].name,
+                  dataSource[i].address,
+                  dataSource[i].email,
+                  dataSource[i].phone);
+    }	
+ }
+ 
   
 
 

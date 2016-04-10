@@ -286,7 +286,7 @@ function editButtons(id)
          row += "<button id='uxEditBtn'class='btn btn-secondary' role='button' onclick='javascript:removeRow("+id+");'>Delete</button>"
          row += "</th>"
          row += "<td>"+ name +"</td>"
-         row += "<td>"+ address +"</td>"
+         row += "<td><div style='wordwrap:break-word;width:180px'>"+ address +"</div></td>"
          row += "<td>"+ email +"</td>"
          row += "<td>"+ phone +"</td></tr>";
       
