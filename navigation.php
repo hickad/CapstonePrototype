@@ -10,28 +10,40 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Home</a>
+            <button  href="index.php">Home</button>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="donors.php">Donors</a>
+                    <button href="donors.php">Donors</button>
                 </li>
                 <li>
-                    <a href="customers.php">Customers</a>
+                    <button href="customers.php">Customers</button>
                 </li>
                 <li>
-                    <a href="datalookup.php">Data Lookup</a>
+                    <button href="datalookup.php">Data Lookup</button>
                 </li>
                 <li>
-                    <a href="reports.php">Reports</a>
+                    <button href="reports.php">Reports</button>
                 </li>
                 <li>
-                    <a href="financials.php">Financials</a>
+                    <button href="financials.php">Financials</button>
+                </li>
+                <li>
+				<button data-toggle="dropdown" >
+					Administrators
+					<span class="caret"></span>
+				  </button>
+                    <ul class="dropdown-menu">
+						<li><a href="Admincustomers.php">Manage Customers</a></li>
+						<li><a href="Admindonors.php">Manage Donors</a></li>
+						<li><a href="datalookup.php">Data Lookup</a></li>
+						<li><a href="reports.php">Reports</a></li>
+					  </ul>
                 </li>
                  <li>
-                    <a href="communityPartners.php">Community Partners</a>
+                    <button href="communityPartners.php">Community Partners</button>
                 </li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
