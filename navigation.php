@@ -10,40 +10,45 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <button  href="index.php">Home</button>
+            <a class="navbar-brand" href="index.php">Home</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <button href="donors.php">Donors</button>
-                </li>
-                <li>
-                    <button href="customers.php">Customers</button>
-                </li>
-                <li>
-                    <button href="datalookup.php">Data Lookup</button>
-                </li>
-                <li>
-                    <button href="reports.php">Reports</button>
-                </li>
-                <li>
-                    <button href="financials.php">Financials</button>
-                </li>
-                <li>
-				<button data-toggle="dropdown" >
-					Administrators
+				<button style="background:rgba(38, 38, 38, .05); color:grey; padding-top:15px; border:none;" data-toggle="dropdown" >
+					 Donor
 					<span class="caret"></span>
 				  </button>
                     <ul class="dropdown-menu">
-						<li><a href="Admincustomers.php">Manage Customers</a></li>
-						<li><a href="Admindonors.php">Manage Donors</a></li>
+						<li><a href="donorEditInfo.php">Edit Personal Information</a></li>
+						<li><a href="donorItems.php">Review and Edit Items Donated</a></li>
+					  </ul>
+				<li>
+                <li>
+				<button style="background:rgba(38, 38, 38, .05); color:grey; padding-top:15px; border:none;" data-toggle="dropdown" >
+					 Client
+					<span class="caret"></span>
+				  </button>
+                    <ul class="dropdown-menu">
+						<li><a href="clientEditInfo.php">Edit Personal Information</a></li>
+						<li><a href="clientItems.php">Review and Edit Items Recieved</a></li>
+					  </ul>
+				<li>
+                <li>
+				<button style="background:rgba(38, 38, 38, .05); color:grey; padding-top:15px; border:none;" data-toggle="dropdown" >
+					 Administrators
+					<span class="caret"></span>
+				  </button>
+                    <ul class="dropdown-menu">
+						<li><a href="Admincustomers.php">Customers</a></li>
+						<li><a href="Admindonors.php">Donors</a></li>
 						<li><a href="datalookup.php">Data Lookup</a></li>
 						<li><a href="reports.php">Reports</a></li>
+						<li><a href="financials.php">Financials</a></li>
 					  </ul>
-                </li>
-                 <li>
-                    <button href="communityPartners.php">Community Partners</button>
+				<li>
+                    <a href="communityPartners.php">Community Partners</a>
                 </li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
