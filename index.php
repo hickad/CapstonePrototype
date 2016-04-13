@@ -120,7 +120,9 @@
                 <h2>Motivational Speaking</h2>
                 <p>Looking for a high-impact, energized speaker and trainer who presents on numerous topics relative to organizational effectiveness? If you are looking for a way to start, rejuvenate the energy at mid-point, or wrap up your meeting, conference or company event in an informative yet entertaining way, Suited for Success can help.</p>
             </div>
-            <div class="col-sm-4">
+		</div>
+        <div class="row">
+			<div class="col-sm-4">
                 <img class="img-circle img-responsive img-center" src="../images/careerTransitionServices.jpg" alt="Career Transition Services">
                 <h2>Career Transition Services</h2>
                 <p>We provide one-on-one consulting, instructional seminars, peak performance groups, video-taped role-playing sessions, networking support and clerical assistance. We partner with each person to provide critical feedback, strategy and support. These services range from one month to one year, and are customized to fit each individuals needs.</p>
