@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html lang="en">
 
 <head>
@@ -8,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Customer</title>
+    <title>Client Personal Information</title>
 
     <link href="css/main.css" rel="stylesheet">
 
@@ -23,6 +27,13 @@
     <link rel="stylesheet" address="text/css" href="semantic/node/semantic/dist/semantic.min.css">
 	<script src="semantic/node/semantic/dist/semantic.min.js"></script>
 
+		    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>  
+	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -34,17 +45,17 @@
 
 <body>
 
-    <?php include 'navigation.php'; ?>
     
     <?php include 'login.php'; ?>
     
     <?php include 'signUp.php'; ?>
 
-    
-      
+    <?php include 'navigation.php'; ?>
+	
+	 
   <div id="container">
 
-    <h2 class="ui header">Edit Personal Information</h2>    
+    <h2 class="ui header">Client Personal Information</h2>    
     <hr>
    
    
@@ -112,12 +123,6 @@
   
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>  
     
    <script>
   

@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <html lang="en">
 
 <head>
@@ -8,13 +13,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Customer</title>
+    <title>Edit Information</title>
 
+      <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+     <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	
     <link href="css/main.css" rel="stylesheet">
 
-    <!-- Bootstrap Core CSS -->
+	<!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-  	<script src="js/bootstrap.min.js"></script>
+
     <!-- Custom CSS -->
     <link href="css/business-frontpage.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -34,17 +45,17 @@
 
 <body>
 
-    <?php include 'navigation.php'; ?>
+    
     
     <?php include 'login.php'; ?>
     
     <?php include 'signUp.php'; ?>
-
-    
+	
+	<?php include 'navigation.php'; ?>
       
   <div id="container">
 
-    <h2 class="ui header">Edit Personal Information</h2>    
+    <h2 class="ui header">Edit Information</h2>    
     <hr>
    
      <!--This is the form used to enter information into the table-->
@@ -109,15 +120,8 @@
   
     <?php include 'footer.php'; ?>
 
-  
-    <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    
  <script>
 
 	$("#uxNameInput").val("Jane Smith");
@@ -128,6 +132,7 @@
  </script>
       
 
+    
 </body>
 
 </html>

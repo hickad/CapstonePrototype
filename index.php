@@ -1,4 +1,8 @@
- <!DOCTYPE html>
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,10 +18,18 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+	<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+	
     <!-- Custom CSS -->
     <link href="css/business-frontpage.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
     
     <link rel="stylesheet" type="text/css" href="semantic/node/semantic/dist/semantic.min.css">
 	<script src="semantic/node/semantic/dist/semantic.min.js"></script>
@@ -33,13 +45,15 @@
 
 <body>
 
-    <?php include 'navigation.php'; ?>
-    
-    <?php include 'login.php'; ?>
     
     <?php include 'signUp.php'; ?>
 
-   
+	<?php include 'login.php'; ?>
+
+	<?php include 'navigation.php'; ?> 
+	
+
+		
     <!-- Image Background Page Header -->
     <!-- Note: The background image is set within the business-casual.css file. -->
     <header class="business-header" style="padding-top:20px;">
@@ -148,12 +162,7 @@
     </div>
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
+	
 </body>
 
 </html>

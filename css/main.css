@@ -36,6 +36,15 @@ table tr td{
     padding: 5px;
 }
 
+/*Menu*/
+.mainMenuButtons{
+	color:white;
+	background:rgba(0, 0, 0, 0.870588); 
+	padding-top:15px; 
+	border:none;
+	font-family:inherit;
+}
+
 
 /*
 Input Spinner Styles----------------------------

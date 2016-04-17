@@ -1,16 +1,26 @@
-    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
       <div class="modal-dialog">
             <div class="loginmodal-container">
                 <h1>Login to Your Account</h1><br>
-              <form>
-                <input type="text" name="user" placeholder="Username">
-                <input type="password" name="pass" placeholder="Password">
-                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+              <form method="get" action="">
+                <input type="text" name="user" placeholder="Username" value="username123">
+                <input type="password" name="pass" placeholder="Password" value="password123">	
+				<input type="submit" name="role" class="login loginmodal-submit" value="Donor">
+				<input type="submit" name="role" class="login loginmodal-submit" value="Client">
+				<input type="submit" name="role" class="login loginmodal-submit" value="Administrator">
               </form>
-                
-              <div class="login-help">
-                <a href="#">Forgot Password</a>
-              </div>
+			  
+			  <?php
+
+					if( isset($_GET['role']) )
+					{
+						$_SESSION["userRole"] = $_GET['role'];
+					}
+			  
+	
+					
+				?>
+
             </div>
         </div>
       </div>

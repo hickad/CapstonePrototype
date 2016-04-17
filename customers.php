@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html lang="en">
 
 <head>
@@ -23,6 +27,8 @@
     <link rel="stylesheet" address="text/css" href="semantic/node/semantic/dist/semantic.min.css">
 	<script src="semantic/node/semantic/dist/semantic.min.js"></script>
 
+
+	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -40,7 +46,6 @@
     
     <?php include 'signUp.php'; ?>
 
-    
       
   <div id="container">
 
@@ -153,7 +158,7 @@
   
     <!-- /.container -->
 
-    <!-- jQuery -->
+	    <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->

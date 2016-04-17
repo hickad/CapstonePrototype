@@ -1,4 +1,8 @@
- <!DOCTYPE html>
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,11 +14,7 @@
     <meta name="author" content="">
 
     <title>Data Lookup</title>
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
     <link href="css/main.css" rel="stylesheet">
     <link href="css/dropdown.min.css" rel="stylesheet">
 
@@ -30,6 +30,12 @@
     <link rel="stylesheet" type="text/css" href="semantic/node/semantic/dist/semantic.min.css">
 	<script src="semantic/node/semantic/dist/semantic.min.js"></script>
 
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -41,11 +47,13 @@
 
 <body>
 
-    <?php include 'navigation.php'; ?>
     
     <?php include 'login.php'; ?>
     
     <?php include 'signUp.php'; ?>
+	
+	<?php include 'navigation.php'; ?>
+		
 
     <div id="container">
 
@@ -99,14 +107,11 @@
       
   	 </div>
      
-    <hr>
         
     <?php include 'footer.php'; ?>
 
     </div>
     <!-- /.container -->
-
-
 	
 
    <script>
