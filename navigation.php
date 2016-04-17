@@ -166,8 +166,8 @@
 			$('#uxAdministratorsBtn').hide();		
 		break;
 		case "Administrator":
-			$('#uxDonorBtn').hide();
-			$('#uxClientBtn').hide();
+			$('#uxDonorBtn').show();
+			$('#uxClientBtn').show();
 			$('#uxAdministratorsBtn').show();		
 		break;
 		case "Public":

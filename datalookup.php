@@ -15,7 +15,6 @@ session_start();
 
     <title>Data Lookup</title>
 
-    <link href="css/main.css" rel="stylesheet">
     <link href="css/dropdown.min.css" rel="stylesheet">
 
     <!-- Bootstrap Core CSS -->
@@ -35,7 +34,7 @@ session_start();
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-	
+	<link href="css/main.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

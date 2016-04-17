@@ -15,9 +15,6 @@ session_start();
 
     <title>Donors</title>
 
-    <link href="css/main.css" rel="stylesheet">
-
-	
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
   	<script src="js/bootstrap.min.js"></script>
@@ -28,7 +25,7 @@ session_start();
       
     <link rel="stylesheet" type="text/css" href="semantic/node/semantic/dist/semantic.min.css">
 	<script src="semantic/node/semantic/dist/semantic.min.js"></script>
-
+	<link href="css/main.css" rel="stylesheet">
     
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

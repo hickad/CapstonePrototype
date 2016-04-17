@@ -4,6 +4,7 @@
 	margin: auto;
 }
 
+
 #footer{
 	padding-left: 35px;
 }
@@ -14,7 +15,6 @@
 
 /* unvisited link */
 a:link {
-	
 }
 
 /* visited link */
@@ -32,19 +32,33 @@ a:active {
     color: white;
 }
 
+button:hover{
+	color:white;
+}
+
+
 table tr td{
     padding: 5px;
 }
 
 /*Menu*/
 .mainMenuButtons{
-	color:white;
-	background:rgba(0, 0, 0, 0.870588); 
+	color:#ADD8E6;
+	background:#222;
 	padding-top:15px; 
 	border:none;
 	font-family:inherit;
 }
 
+.navbar-inverse .navbar-text {
+  color: #ADD8E6;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #ADD8E6;
+}
+.navbar-inverse .navbar-brand {
+  color: #ADD8E6;
+}
 
 /*
 Input Spinner Styles----------------------------

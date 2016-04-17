@@ -15,7 +15,7 @@ session_start();
 
     <title>Client Items</title>
 	
-    <link href="css/main.css" rel="stylesheet">
+    
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@ session_start();
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>  
-	
+	<link href="css/main.css" rel="stylesheet">
     
 
 </head>
