@@ -2,7 +2,6 @@
 session_start();
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,7 +12,8 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Donors</title>
+    <title>Manage Donors</title>
+
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,56 +23,56 @@ session_start();
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
       
-    <link rel="stylesheet" type="text/css" href="semantic/node/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" address="text/css" href="semantic/node/semantic/dist/semantic.min.css">
 	<script src="semantic/node/semantic/dist/semantic.min.js"></script>
 
-		    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>  
-	<link href="css/main.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>  
+	
+	<link href="css/main.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-
     <?php include 'login.php'; ?>
     
     <?php include 'signUp.php'; ?>
 
-    <?php include 'navigation.php'; ?>
+	<?php include 'navigation.php'; ?>
+      
+  <div id="container">
 
-	
-    <div id="container">
-
-    <h2 class="ui header">Donors</h2>    
+    <h2 class="ui header">Manage Donors</h2>    
     <hr>
    
    
-    <!--This is the donor table and the add donor button.-->
+    <!--This is the customer table and the add customer button.-->
       <div id="uxTableView">  
    
-        <div id="uxAddDonorBtn" class="ui left small primary labeled icon button">
+        <div id="uxAddCustomerBtn" class="ui left small primary labeled icon button">
           <i class="user icon"></i> Add Donor
         </div>
       
-         <table id="donationTable" class="ui celled table" style="width:90%;padding: 15px;">
+         <table id="customerTable" class="ui celled table" style="width:90%;padding: 15px;">
           <thead>
            <tr>
              <th></th>
-             <th>Number of Items</th>
-            <th>Type</th>
-            <th>Value</th>
-            <th>Date</th>
+             <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone</th>
           </tr></thead>
           <tbody>
           </tbody>
@@ -95,58 +95,55 @@ session_start();
             </th>
           </tr></tfoot>
         </table>
+      
   	 </div>
      
      <!--This is the form used to enter information into the table-->
-     <div id="uxFormView"> 
+     <div id="uxFormView">
+       
        <table>
         <tr>
-          <td>Number of Items:</td>
+          <td>Name:</td>
           <td>   
-		   <div class="ui input">
-			  <div class="input-group spinner">
-				<input id="uxNumberOfItemsInput" type="text" class="form-control">
-				<div class="input-group-btn-vertical">
-				  <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-				  <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
-				</div>
-			  </div>
-			</div>
+          <div class="ui input">
+            <input id="uxNameInput" address="text">
+           </div>
           </td>
           <th>
-            <div id="uxNumberOfItemsTxt"></div>
+            <div id="uxNameTxt"></div>
           </th>
         </tr>
         <tr>
-          <td>Item:</td>
+          <td>Address:</td>
           <td>
-			<select  class="ui dropdown" id="uxTypeInput">
-			</select>	
+          <div class="ui input">
+            <textarea id="uxAddressInput" rows="4" cols="30"></textarea>
+           </div>
           </td>
           <th>
-            <div id="uxTypeTxt"></div>
+            <div id="uxAddressTxt"></div>
           </th>
         </tr>
         <tr>
-          <td>Value:</td>
+          <td>Email:</td>
           <td>
            <div class="ui input">
-            <input id="uxValueInput" type="text">
+            <input id="uxEmailInput" address="email">
            </div>
           </td>
            <th>
-            <div id="uxValueTxt"></div>
+            <div id="uxEmailTxt"></div>
           </th>
         </tr>
         <tr>
-          <td>Date:</td>
+          <td>Phone:</td>
           <td>
           <div class="ui input">
-            <input id="uxDateInput" type="date">
+            <input id="uxPhoneInput" address="tel">
            </div>
           </td>  
           <th>
-            <div id="uxDateTxt"></div>
+            <div id="uxemailTxt"></div>
           </th>      
       </table>
     <br/>
@@ -156,87 +153,79 @@ session_start();
 
      </div>
     
-    </div>
+   </div>
+	
+	
   </div> 
-        
+  
     <?php include 'footer.php'; ?>
 
-    </div>
     <!-- /.container -->
 
-
-    
    <script>
-     
+  
  //
  // INITIAL CONDITION
  //  
-var dt = [{numberItems:1, type:0,totalValue:20,date:"4/02/2016"},
-		  {numberItems:2, type:3,totalValue:200,date:"2/12/2016"},
-		  {numberItems:4, type:5,totalValue:150.50,date:"4/23/2016"},
-		  {numberItems:1, type:4,totalValue:100,date:"4/02/2016"},
-		  {numberItems:2, type:2,totalValue:200,date:"1/30/2013"},
-		  {numberItems:6, type:5,totalValue:200,date:"3/23/2016"}];
-		  
-var typeOptions = ["dress shirt","pants","tie","shoes","belt","socks","blazers & sport coats"];
+ 
+ 
+var dt = [{name:"Greg Porter", address:"678 Violet Lane, Jacksonville, Fl. 32085",email:"Porter@gmail.com",phone:"555-904-4568"},
+		  {name:"Annie Ford", address:"789 Red Lane, Jacksonville, Fl. 32085",email:"Ford@gmail.com",phone:"555-906-2367"},
+		  {name:"Rob Michaels", address:"234 Blue Lane, Jacksonville, Fl. 32085",email:"Michaels@gmail.com",phone:"555-907-4589"},
+		  {name:"James Smith", address:"555 Orange Lane, Jacksonville, Fl. 32085",email:"smith@gmail.com",phone:"555-904-6778"},
+		  {name:"Herb O'Reilly", address:"456 Pink Lane, Jacksonville, Fl. 32085",email:"Herb@gmail.com",phone:"555-703-4566"}];
 		  
   dataBind(dt);
   $('#uxFormView').hide();
   $('#uxTableView').show();
 
 
-createDropDown('uxTypeInput', typeOptions)
-
 // PROPERTIES ------------------------------------
 // The id of the edit button selected in the table.
 var dataId;
 
-//Defines if the donor entry form is for editing existing data or entering new data.
+//Defines if the customer entry form is for editing existing data or entering new data.
 var editMode; 
 
 // DDNOR FORM ------------------------------------
 //
 //
-//  This is the submit button on the donor entry form.
+//  This is the submit button on the customer entry form.
 //
 $("#uxSubmitBtn").click(function() 
-{  
+{ 
   	try
     {
-      var numberOfItems = $.trim($("#uxNumberOfItemsInput").val());
-      var ItemType = $("#uxTypeInput").val();
-      var itemValue = $.trim($("#uxValueInput").val());
-      var date = $.trim($("#uxDateInput").val());
+      var nameValue = $.trim($("#uxNameInput").val());
+      var addressValue = $("#uxAddressInput").val();
+      var emailValue = $.trim($("#uxEmailInput").val());
+      var phoneValue = $.trim($("#uxPhoneInput").val());
       
       clearErrors();
-      
-      if( numberOfItems.length <= 0 ){ $("#uxNumberOfItemsTxt").text("Please enter the number of items."); return };
-      if( itemValue.length <= 0 ){ $("#uxValueTxt").text("Please enter a donation amount."); return };
-      if( date.length <= 0 ){ $("#uxDateTxt").text("Please enter a donation date."); return };
-
        
       if( editMode )
       {
-        dt[dataId].numberItems = numberOfItems;
-        dt[dataId].type = ItemType;
-        dt[dataId].totalValue = itemValue;
-        dt[dataId].date = date;
+        dt[dataId].name = nameValue;
+        dt[dataId].address = addressValue;
+        dt[dataId].phone = phoneValue;
+        dt[dataId].email = emailValue;
       }
       else
       {
-        dt.push({numberItems: numberOfItems, 
-                type: ItemType, 
-                date: itemValue, 
-                totalValue: date });
+        dt.push({name: nameValue, 
+                address: addressValue, 
+                email: emailValue, 
+                phone: phoneValue });
       }
        
       $('#uxFormView').hide();   
       $('#uxTableView').show();
-     clear();
       //Clear the table before repopulating it.
-      $('#donationTable tbody').empty();
-      
+	  clear();
+      $('#customerTable tbody').empty();
+
       dataBind(dt);
+	  
     }
     catch(error)
     {
@@ -260,9 +249,9 @@ $("#uxBackBtn").click(function()
 
 
  
-// DONOR TABLE ---------------------------
+// CUSTOMER TABLE ---------------------------
 
-$('#uxAddDonorBtn').click(function() 
+$('#uxAddCustomerBtn').click(function() 
 { 
   $('#uxTableView').hide();
   $('#uxFormView').show();
@@ -280,39 +269,36 @@ function editButtons(id)
       $('#uxFormView').show();
 
       //Populate the textfields in the form.
-      $("#uxNumberOfItemsInput").val(dt[id].numberItems);
-      $("#uxTypeInput").val(dt[id].type);
-      $("#uxValueInput").val(dt[id].totalValue);
-      $("#uxDateInput").val(dt[id].date);  
+      $("#uxNameInput").val(dt[id].name);
+      $("#uxAddressInput").val(dt[id].address);
+      $("#uxPhoneInput").val(dt[id].phone);
+      $("#uxEmailInput").val(dt[id].email);  
 }
  
  
  // FUNCTIONS ------------------------------------
  //
- // Adds a new row to the donor grid.
+ // Adds a new row to the customer grid.
  //
- function addDonorRow(id,numberItems,type,totalValue,date)
+ function addRow(id,name,address,email, phone)
  {
      var row = "<tr>"
          row += "<th>"
          row += "<button id='uxEditBtn' class='btn btn-secondary' role='button' onclick='javascript:editButtons("+id+");'>Edit</button> "
-         row += "<button id='uxEditBtn'class='btn btn-secondary' role='button' onclick='javascript:removeDonorRow("+id+");'>Delete</button>"
+         row += "<button id='uxEditBtn'class='btn btn-secondary' role='button' onclick='javascript:removeRow("+id+");'>Delete</button>"
          row += "</th>"
-         row += "<td>"+ numberItems +"</td>"
-         row += "<td>Pledge(s) of "+ typeOptions[type] +"</td>"
-         row += "<td>"+ toDollarAmount(totalValue) +"</td>"
-         row += "<td>"+ date +"</td></tr>";
+         row += "<td>"+ name +"</td>"
+         row += "<td><div style='wordwrap:break-word;width:180px'>"+ address +"</div></td>"
+         row += "<td>"+ email +"</td>"
+         row += "<td>"+ phone +"</td></tr>";
       
-     $('#donationTable tbody').append(row);
+     $('#customerTable tbody').append(row);
  }
  
- 
-
- 
- function removeDonorRow(id)
+ function removeRow(id)
  {
     //Clear the table before repopulating it.
-    $('#donationTable tbody').empty();
+    $('#customerTable tbody').empty();
     delete dt[id];
     dataBind(dt);
  }
@@ -325,23 +311,23 @@ function editButtons(id)
  {
     for( var i in dataSource)
     {
-      addDonorRow(i,
-                  dataSource[i].numberItems,
-                  dataSource[i].type,
-                  dataSource[i].totalValue,
-                  dataSource[i].date);
-    }
+      addRow(i,
+                  dataSource[i].name,
+                  dataSource[i].address,
+                  dataSource[i].email,
+                  dataSource[i].phone);
+    }	
  }
-  
+ 
   //
-  //Clears the donor entry form.
+  //Clears the customer entry form.
   //
  function clear()
  {
-    $("#uxNumberOfItemsInput").val("0");
-	$("#uxTypeInput").val(0);	
-    $("#uxValueInput").val(""); 
-    $("#uxDateInput").val("");
+    $("#uxNameInput").val("");
+	$("#uxAddressInput").val("");	
+    $("#uxEmailInput").val(""); 
+    $("#uxPhoneInput").val("");
  }
  
  //
@@ -349,13 +335,13 @@ function editButtons(id)
  //
  function clearErrors()
  {
-    $("#uxNumberOfItemsTxt").text("");
-    $("#uxTypeTxt").text("");
-    $("#uxValueTxt").text("");
-    $("#uxDateTxt").text("");
+    $("#uxNameTxt").text("");
+    $("#uxAddressTxt").text("");
+    $("#uxEmailTxt").text("");
+    $("#uxPhoneTxt").text("");
  }
- 
 
+ 
 
  </script>
       

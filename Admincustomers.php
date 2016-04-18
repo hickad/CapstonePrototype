@@ -12,7 +12,7 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Customers</title>
+    <title>Manage Customers</title>
 
 
     <!-- Bootstrap Core CSS -->
@@ -54,7 +54,7 @@ session_start();
       
   <div id="container">
 
-    <h2 class="ui header">Customers</h2>    
+    <h2 class="ui header">Manage Customers</h2>    
     <hr>
    
    
