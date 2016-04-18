@@ -30,6 +30,7 @@
 					<span class="caret"></span>
 				  </button>
                     <ul class="dropdown-menu">
+						<li><a href="mentorFeedback.php">MentorFeedback</a></li>
 						<li><a href="clientEditInfo.php">Edit Personal Information</a></li>
 						<li><a href="clientItems.php">Review and Edit Items Recieved</a></li>
 					  </ul>
