@@ -23,7 +23,7 @@ session_start();
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
       
-    <link rel="stylesheet" address="text/css" href="semantic/node/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="semantic/node/semantic/dist/semantic.min.css">
 	<script src="semantic/node/semantic/dist/semantic.min.js"></script>
 
 		    <!-- jQuery -->
