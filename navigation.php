@@ -22,6 +22,7 @@
                     <ul class="dropdown-menu">
 						<li><a href="donorEditInfo.php">Edit Personal Information</a></li>
 						<li><a href="donorItems.php">Review and Edit Items Donated</a></li>
+						<li><a href="taxInfo.php">Tax Information</a></li>
 					</ul>
 				<li>
                 <li>
