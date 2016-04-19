@@ -74,15 +74,27 @@
 
 		try{
 			if(isset($_GET['userRole']))
+			{
 				$_SESSION["userRole"] = $_GET['userRole'];
+			}
+			
+			if(isset($_SESSION['userRole']))
+			{
+				// This creates a hidden input field that stores the session variable.	
+				echo "<input type='hidden' id='userRole' value='".$_SESSION['userRole']."'/>";
+			}
+			else
+			{
+				echo "<input type='hidden' id='userRole' value='Public'/>";
+			}
+			
 		}
 		catch(Exception $e)
 		{
 			debug_to_console( $e->getMessage() );
 		}
 		
-		// This creates a hidden input field that stores the session variable.			
-		echo "<input type='hidden' id='userRole' value='".$_SESSION['userRole']."'/>";		
+		
 				
 		//
 		// Used to output to console
