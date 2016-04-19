@@ -149,7 +149,7 @@ session_start();
             <div class="col-sm-4">
                 <img class="img-circle img-responsive img-center" src="../images/mentoring.png" alt="Mentoring">
                 <h2>Mentoring</h2>
-                <p>We help uncomplicated your job search experience. We work with everyone from first-time job seekers to the experienced professional looking to get back into the job market. From resume development to interview preparation, we’ve got you covered.</p>
+                <p>We help uncomplicate your job search experience. We work with everyone from first-time job seekers to the experienced professional looking to get back into the job market. From resume development to interview preparation, we’ve got you covered.</p>
             </div>
 
 
